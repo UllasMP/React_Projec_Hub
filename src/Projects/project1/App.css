@@ -1,0 +1,149 @@
+:root{
+  --bg: rgb(197,197,228);
+  --text: #222;
+  --header-bg: #473bb8ff;
+  --footer-bg: #473bb8ff;
+  --btn-bg: #6181b1;
+  --btn-hover: #c57acc;
+  --card-bg: #ffffff;
+  --modal-backdrop: rgba(0,0,0,0.4);
+  --modal-card: #fff;
+}
+
+/* dark theme overrides */
+[data-theme="dark"]{
+  --bg: #1e1e2f;
+  --text: #f5f5f5;
+  --header-bg: #2c2f3a;
+  --footer-bg: #2c2f3a;
+  --btn-bg: #44475a;
+  --btn-hover: #7066d3;
+  --card-bg: #2b2b3d;
+  --modal-card: #2b2b3d;
+  --modal-backdrop: rgba(0,0,0,0.55);
+}
+
+.app-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  background-color: var(--bg);
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+.app-header {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: var(--text);
+  font-weight: bold;
+}
+
+/* header style applied in inline style of Header component too */
+.app-header, .app-footer {
+  background-color: var(--header-bg);
+  color: white;
+}
+
+/* Buttons and Inputs */
+.input-field {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 10px;
+  font-size: 14px;
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+.btn {
+  padding: 8px 16px;
+  background-color: var(--btn-bg);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.3s;
+}
+.btn:hover {
+  background-color: var(--btn-hover);
+}
+
+/* Delete button */
+button.delete {
+  background-color: #cc5656;
+}
+button.delete:hover {
+  background-color: #af5757;
+}
+
+/* Filter Section */
+.filter-section { margin: 15px 0; }
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: var(--card-bg);
+  color: var(--text);
+  border-radius: 6px;
+  overflow: hidden;
+}
+th {
+  background-color: #c27cb9;
+  color: white;
+  padding: 8px;
+  text-align: left;
+}
+td {
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: 8px;
+  text-align: left;
+}
+
+/* statistics */
+.stats { margin-top: 20px; font-weight: bold; color: var(--text); }
+
+/* modal */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--modal-backdrop);
+  z-index: 1000;
+}
+.modal-card {
+  width: 90%;
+  max-width: 480px;
+  background: var(--modal-card);
+  color: var(--text);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+/* error fallback */
+.error-fallback {
+  padding: 20px;
+  border-radius: 8px;
+  background: #fff0f0;
+  color: #660000;
+  max-width: 900px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .app-container { padding: 15px; }
+  .input-field { width: 100%; margin: 8px 0; }
+  table, th, td { font-size: 14px; }
+}

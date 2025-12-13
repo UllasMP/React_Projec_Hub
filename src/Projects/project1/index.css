@@ -1,0 +1,20 @@
+:root {
+  color-scheme: light dark;
+}
+
+/* global body sizing & transition */
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* make whole app centerable */
+#root {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
