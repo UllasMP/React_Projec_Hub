@@ -6,6 +6,7 @@ import { FiSun } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 import { Dialog, Transition } from '@headlessui/react'
 import { RxCross2 } from 'react-icons/rx'
+import { useSelector } from 'react-redux'
 
 function Navbar() {
 
@@ -18,6 +19,9 @@ function Navbar() {
     localStorage.clear('user');
     window.location.href='/hello/login'
   }
+  
+  const cartItems = useSelector((state) => state.cart)
+
   return (
     <div className="bg-white sticky top-0 z-50">
 
@@ -311,9 +315,7 @@ function Navbar() {
                     <span
                       className="ml-2 text-sm font-medium text-gray-700 group-"
                       style={{ color: mode === 'dark' ? 'white' : '' }}
-                    >
-                      0
-                    </span>
+                    >{cartItems.length}</span>
 
                     <span className="sr-only">items in cart, view bag</span>
                   </Link>
