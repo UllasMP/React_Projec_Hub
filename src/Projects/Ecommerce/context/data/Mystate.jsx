@@ -19,6 +19,9 @@ import { toast } from "react-toastify"
 
 function MyState(props) {
 
+  /* ================= GLOBAL LOADING ================= */
+  const [loading, setLoading] = useState(false)
+
   /* ================= THEME ================= */
   const [mode, setMode] = useState('light')
 
@@ -33,13 +36,11 @@ function MyState(props) {
   }
 
   /* ================= AUTH USER ================= */
-  const [user, setUser] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [authUser, setAuthUser] = useState(null)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser)
-      setLoading(false)
+      setAuthUser(currentUser)
     })
     return () => unsubscribe()
   }, [])
@@ -76,7 +77,6 @@ function MyState(props) {
     try {
       await addDoc(collection(fireDB, "products"), products)
       toast.success("Product added successfully")
-      getProductData()
       setLoading(false)
     } catch (error) {
       console.log(error)
@@ -84,11 +84,11 @@ function MyState(props) {
     }
   }
 
-  const getProductData = async () => {
+  const getProductData = () => {
     setLoading(true)
     try {
-      const q = query(collection(fireDB, "products"), orderBy("time"))
-      onSnapshot(q, (snapshot) => {
+      const q = query(collection(fireDB, "products"), orderBy("time", "desc"))
+      return onSnapshot(q, (snapshot) => {
         const productsArray = snapshot.docs.map(doc => ({
           ...doc.data(),
           id: doc.id
@@ -103,7 +103,8 @@ function MyState(props) {
   }
 
   useEffect(() => {
-    getProductData()
+    const unsub = getProductData()
+    return () => unsub && unsub()
   }, [])
 
   const edithandle = (item) => setProducts(item)
@@ -113,7 +114,6 @@ function MyState(props) {
     try {
       await setDoc(doc(fireDB, "products", products.id), products)
       toast.success("Product updated successfully")
-      getProductData()
       setLoading(false)
     } catch (error) {
       console.log(error)
@@ -126,7 +126,6 @@ function MyState(props) {
     try {
       await deleteDoc(doc(fireDB, "products", item.id))
       toast.success("Product deleted successfully")
-      getProductData()
       setLoading(false)
     } catch (error) {
       console.log(error)
@@ -141,7 +140,10 @@ function MyState(props) {
     setLoading(true)
     try {
       const snapshot = await getDocs(collection(fireDB, "orders"))
-      const ordersArray = snapshot.docs.map(doc => doc.data())
+      const ordersArray = snapshot.docs.map(doc => ({
+        ...doc.data(),
+        id: doc.id
+      }))
       setOrder(ordersArray)
       setLoading(false)
     } catch (error) {
@@ -154,6 +156,34 @@ function MyState(props) {
     getOrderData()
   }, [])
 
+  /* ================= USERS ================= */
+  const [users, setUsers] = useState([])
+
+  const getUserData = async () => {
+    setLoading(true)
+    try {
+      const snapshot = await getDocs(collection(fireDB, "users"))
+      const usersArray = snapshot.docs.map(doc => ({
+        ...doc.data(),
+        id: doc.id
+      }))
+      setUsers(usersArray)
+      setLoading(false)
+    } catch (error) {
+      console.log(error)
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    getUserData()
+  }, [])
+
+  /*Filter logic */
+  const [searchkey, setSearchkey] = useState('')
+  const [filterType, setFilterType] = useState('')
+  const [filterPrice, setFilterPrice] = useState('')
+
   /* ================= PROVIDER ================= */
   return (
     <myContext.Provider value={{
@@ -161,7 +191,9 @@ function MyState(props) {
       toggleMode,
       loading,
       setLoading,
-      user,            // 🔥 VERY IMPORTANT
+
+      authUser,
+
       products,
       setProducts,
       addProduct,
@@ -169,7 +201,10 @@ function MyState(props) {
       edithandle,
       updateProduct,
       deleteProduct,
-      order
+
+      order,
+      users,
+      searchkey,setSearchkey,filterType,setFilterType,filterPrice,setFilterPrice
     }}>
       {props.children}
     </myContext.Provider>
