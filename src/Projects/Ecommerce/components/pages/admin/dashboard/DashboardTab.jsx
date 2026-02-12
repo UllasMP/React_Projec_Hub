@@ -1,7 +1,8 @@
 import React, { useState,useContext } from 'react'
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs'
 import { Link } from 'react-router-dom'
-import myContext from '../../../../context/data/myContext'
+import myContext from "@/Projects/Ecommerce/context/data/myContext";
+
 
 import { MdOutlineProductionQuantityLimits } from 'react-icons/md'
 import { AiFillShopping } from 'react-icons/ai'

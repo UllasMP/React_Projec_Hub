@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Layout from '../../layout/Layout';
-import myContext from '../../../context/data/myContext';
+import myContext from "@/Projects/Ecommerce/context/data/myContext";
+
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { doc, getDoc } from 'firebase/firestore';

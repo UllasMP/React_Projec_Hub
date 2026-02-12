@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import {FaUserTie } from 'react-icons/fa';
-import myContext from '../../../../context/data/myContext';
+import myContext from "@/Projects/Ecommerce/context/data/myContext";
+
 import Layout from '../../../layout/Layout';
 import DashboardTab from './DashboardTab';
 

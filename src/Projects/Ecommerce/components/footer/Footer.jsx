@@ -2,7 +2,8 @@ import React from 'react'
 import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import myContext from '../../context/data/myContext'
+import myContext from "@/Projects/Ecommerce/context/data/myContext";
+
 
 export default function Footer() {
     const context = useContext(myContext)

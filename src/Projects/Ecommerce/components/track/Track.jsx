@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
-import myContext from '../../context/data/myContext'
+import myContext from "@/Projects/Ecommerce/context/data/myContext";
+
 
 function Track() {
     const context = useContext(myContext)

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Fragment } from 'react'
-import myContext from '../../context/data/myContext'
+import myContext from "@/Projects/Ecommerce/context/data/myContext";
+
 import { BsFillCloudSunFill } from 'react-icons/bs'
 import { FiSun } from 'react-icons/fi'
 import { Link } from 'react-router-dom'

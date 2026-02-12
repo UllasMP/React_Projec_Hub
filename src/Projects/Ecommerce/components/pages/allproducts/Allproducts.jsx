@@ -2,7 +2,8 @@ import React, { useContext, useEffect } from 'react'
 import Filter from '../../filter/Filter'
 import ProductCard from '../../components/productCard/ProductCard'
 import Layout from '../../layout/Layout'
-import myContext from '../../../context/data/myContext'
+import myContext from "@/Projects/Ecommerce/context/data/myContext";
+
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart } from '../../../redux/cartSlice'
 

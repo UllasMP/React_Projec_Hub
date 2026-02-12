@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
-import myContext from '../../../context/data/myContext';
+import myContext from "@/Projects/Ecommerce/context/data/myContext";
+
 import { useContext, useState } from 'react';
 import { toast } from 'react-toastify';
 import { auth } from '../../../firebase/FirebaseConfig';

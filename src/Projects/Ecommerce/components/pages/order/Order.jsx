@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import Layout from "../../layout/Layout";
-import myContext from "../../../context/data/myContext";
+import myContext from "@/Projects/Ecommerce/context/data/myContext";
+
 
 function Order() {
   const { user, loading, order, mode } = useContext(myContext);
