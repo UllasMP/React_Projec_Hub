@@ -1,6 +1,5 @@
 import React ,{useContext} from 'react'
 import Layout from '../../layout/Layout'
-import myContext from '../../../context/data/myContext'
 import HeroSection from '../../heroSection/HeroSection'
 import Filter from '../../filter/Filter'
 import ProductCard from '../../ProductCard/ProductCard'
