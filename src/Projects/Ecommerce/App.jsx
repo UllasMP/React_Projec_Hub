@@ -39,7 +39,7 @@ function App() {
                   </ProtectedRoute>
                 } />
                 <Route path="/login" element={<Login/>} />
-                <Route path="/Ecommerce/signup" element={<Signup/>} />
+                <Route path="/signup" element={<Signup/>} />
 
                 <Route path="/addproduct" element={
                   <ProtectedRoute>
