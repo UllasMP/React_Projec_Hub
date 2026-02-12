@@ -21,7 +21,7 @@ function App() {
         element={<DemoPlaceholder title="React Form + Firebase Auth Demo" />}
       />
       <Route
-        path="/hello/*"
+        path="/Ecommerce/*"
         element={<Out/>}
       />
       <Route

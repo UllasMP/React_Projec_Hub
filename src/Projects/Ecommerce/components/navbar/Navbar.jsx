@@ -14,12 +14,12 @@ function Navbar() {
   const context = useContext(myContext)
   const { mode, toggleMode } = context
   const user = JSON.parse(localStorage.getItem('user'))
-  
-  const logout = () =>{
+
+  const logout = () => {
     localStorage.clear('user');
-    window.location.href='/hello/login'
+    window.location.href = '/Ecommerce/login'
   }
-  
+
   const cartItems = useSelector((state) => state.cart)
 
   return (
@@ -73,16 +73,16 @@ function Navbar() {
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
 
                   <Link
-                    to={'/allproducts'}
+                    to={'/Ecommerce'}
                     className="text-sm font-medium text-gray-900"
                     style={{ color: mode === 'dark' ? 'white' : '' }}
                   >
-                    All Products
+                    HOME
                   </Link>
 
-                 {user ?  <div className="flow-root">
+                  {user ? <div className="flow-root">
                     <Link
-                      to={'/order'}
+                      to={'/Ecommerce/order'}
                       style={{ color: mode === 'dark' ? 'white' : '' }}
                       className="-m-2 block p-2 font-medium text-gray-900"
                     >
@@ -90,29 +90,30 @@ function Navbar() {
                     </Link>
                   </div> : " "}
 
-                  {user?.user?.email === 'ullasmpu@gmail.com' ? 
-                  <div className="flow-root">
-                    <Link
-                      to={'hello/dashboard'}
-                      className="-m-2 block p-2 font-medium text-gray-900"
-                      style={{ color: mode === 'dark' ? 'white' : '' }}
-                    >
-                      admin
-                    </Link>
-                  </div> : ""}
+                  {user?.user?.email === 'ullasmpu@gmail.com' ?
+                    <div className="flow-root">
+                      <Link
+                        to={'/Ecommerce/dashboard'}
+                        className="-m-2 block p-2 font-medium text-gray-900"
+                        style={{ color: mode === 'dark' ? 'white' : '' }}
+                      >
+                        admin
+                      </Link>
+                    </div> : ""}
 
-                    {user ? <div className="flow-root">
-                    <a onClick={logout}
-                      className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer"
-                      style={{ color: mode === 'dark' ? 'white' : '' }}
-                    >
+                  {user ? <div className="flow-root">
+                    <a onClick={logout} className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer" style={{ color: mode === 'dark' ? 'white' : '', }}>
                       Logout
                     </a>
-                  </div> : "" }
+                  </div> : <div className="flow-root">
+                    <Link to={'/Ecommerce/signup'} className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer" style={{ color: mode === 'dark' ? 'white' : '', }}>
+                      Signup
+                    </Link>
+                  </div>}
 
                   <div className="flow-root">
                     <Link
-                      to={'/'}
+                      to={''}
                       className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer"
                     >
                       <img
@@ -209,7 +210,7 @@ function Navbar() {
                       className="text-2xl font-bold text-black px-2 py-1 rounded"
                       style={{ color: mode === 'dark' ? 'white' : '' }}
                     >
-                      E-Bharat
+                      NovaCart
                     </h1>
                   </div>
                 </Link>
@@ -219,36 +220,37 @@ function Navbar() {
 
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   <Link
-                    to={'/allproducts'}
+                    to={'/Ecommerce'}
                     className="text-sm font-medium text-gray-700"
                     style={{ color: mode === 'dark' ? 'white' : '' }}
                   >
-                    All Products
+                    HOME
                   </Link>
 
-                {user ? <Link
+                  {user ? <Link
                     to={'/order'}
                     className="text-sm font-medium text-gray-700"
                     style={{ color: mode === 'dark' ? 'white' : '' }}
                   >
                     Order
-                  </Link> : " " }
+                  </Link> : " "}
 
-                 {user?.user?.email === "ullasmpu@gmail.com" ?  <Link
+                  {user?.user?.email === "ullasmpu@gmail.com" ? <Link
                     to={'/hello/dashboard'}
                     className="text-sm font-medium text-gray-700"
                     style={{ color: mode === 'dark' ? 'white' : '' }}
                   >
                     Admin
-                  </Link> : " " }
-
-                {user ? <a
-                onClick={logout}
-                    className="text-sm font-medium text-gray-700 cursor-pointer"
-                    style={{ color: mode === 'dark' ? 'white' : '' }}
-                  >
-                    Logout
-                  </a> : "" }
+                  </Link> : " "}
+                  {user ? <div className="flow-root">
+                    <a onClick={logout} className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer" style={{ color: mode === 'dark' ? 'white' : '', }}>
+                      Logout
+                    </a>
+                  </div> : <div className="flow-root">
+                    <Link to={'/Ecommerce/signup'} className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer" style={{ color: mode === 'dark' ? 'white' : '', }}>
+                      Signup
+                    </Link>
+                  </div>}
                 </div>
 
                 <div className="hidden lg:ml-8 lg:flex">
@@ -271,7 +273,7 @@ function Navbar() {
                   <a href="#" className="flex items-center text-gray-700">
                     <img
                       className="inline-block w-10 h-10 rounded-full"
-                      src="https://overreacted.io/static/profile-pic-c715447ce38098828758e525a1128b87.jpg"
+                      src="..\src\Projects\Ecommerce\assets\img.jpeg"
                       alt="Dan_Abromov"
                     />
                   </a>
@@ -293,7 +295,7 @@ function Navbar() {
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
                   <Link
-                    to={'/cart'}
+                    to={'/Ecommerce/cart'}
                     className="group -m-2 flex items-center p-2"
                     style={{ color: mode === 'dark' ? 'white' : '' }}
                   >

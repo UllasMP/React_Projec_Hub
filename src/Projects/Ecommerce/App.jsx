@@ -39,7 +39,7 @@ function App() {
                   </ProtectedRoute>
                 } />
                 <Route path="/login" element={<Login/>} />
-                <Route path="/signup" element={<Signup/>} />
+                <Route path="/Ecommerce/signup" element={<Signup/>} />
 
                 <Route path="/addproduct" element={
                   <ProtectedRoute>
@@ -70,7 +70,7 @@ const ProtectedRoute = ({children}) =>{
   }
   else
   {
-    return <Navigate to={'/hello/login'}/>
+    return <Navigate to={'/Ecommerce/login'}/>
 
   }
 }
@@ -82,6 +82,6 @@ export const ProtectedRoutesForAdmin = ({children}) => {
     return children
   }
   else {
-    return <Navigate to='/hello/login' />
+    return <Navigate to='/Ecommerce/login' />
   }
 }

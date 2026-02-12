@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ProjectModal from "./ProjectModel";
 
 const projects = [
-  {
+ /* {
     id: "react-form",
     title: "React Form + Firebase Auth",
     subtitle: "User registration & login with form validation.",
@@ -11,7 +11,7 @@ const projects = [
     description:
       "This app demonstrates controlled components, form validation, and basic state management. In your real version, you can integrate Firebase Authentication.",
     demoRoute: "/react-form-demo",
-  },
+  },*/
   {
     id: "react-ecommerce",
     title: "React Ecommerce UI",
@@ -19,9 +19,9 @@ const projects = [
     techStack: "React, Routing, State",
     description:
       "A clean ecommerce user interface with product cards, cart management, and basic routing. Perfect base for a full MERN ecommerce app.",
-    demoRoute: "/hello",
+    demoRoute: "/Ecommerce",
   },
-  {
+ /* {
     id: "weather-dashboard",
     title: "Weather Dashboard",
     subtitle: "Weather app demo with search.",
@@ -29,7 +29,7 @@ const projects = [
     description:
       "A weather dashboard showing current conditions for a searched city. Demonstrates API integration and dynamic UI updates.",
     demoRoute: "/hi",
-  },
+  },*/
  
 ];
 
@@ -56,8 +56,7 @@ function ProjectsSection() {
           <h1 className="projects-title">My React Projects</h1>
           <p className="projects-subtitle">
             Click <span className="highlight">View Details</span> to know more
-            or <span className="highlight">Live Demo</span> to run the project
-            in this page with its own route.
+            or <span className="highlight">Live Demo</span> to run the project.
           </p>
         </header>
 

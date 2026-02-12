@@ -41,7 +41,7 @@ function Login() {
 
       // Redirect after toast
       setTimeout(() => {
-        navigate('/hello');
+        navigate('/Ecommerce');
       }, 2000);
 
     } catch (error) {
@@ -89,7 +89,7 @@ function Login() {
 
         <h2 className='text-white mt-3'>
           Don't have an account?{" "}
-          <Link className='text-yellow-500 font-bold' to='/hello/signup'>
+          <Link className='text-yellow-500 font-bold' to='/Ecommerce/signup'>
             Signup
           </Link>
         </h2>

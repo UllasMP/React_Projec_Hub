@@ -8,10 +8,6 @@ function DemoPlaceholder({ title }) {
       <div className="demo-card">
         <h1>{title}</h1>
         <p>You can attach the real project component to this route later.</p>
-         <p>You can attach the real project component to this route later.</p>
-          <p>You can attach the real project component to this route later.</p>
-           <p>You can attach the real project component to this route later.</p>
-            <p>You can attach the real project component to this route later.</p>
         <Link to="/" className="back-link">
           ← Back to React Projects
         </Link>
